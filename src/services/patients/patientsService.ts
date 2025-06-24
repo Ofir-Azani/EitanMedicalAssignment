@@ -45,7 +45,7 @@ export const getPatientHeartRateStats = (patientId: PatientId, fromTime: string,
     if (heartRates.length === 0) return { avg: null, min: null, max: null };
     const heartRatesSum = heartRates.reduce((acc, val) => acc + val, 0);
     return {
-        avg: heartRatesSum / heartRates.length,
+        avg: (heartRatesSum / heartRates.length).toFixed(2),
         max: Math.max(...heartRates),
         min: Math.min(...heartRates)
     }
