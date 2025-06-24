@@ -99,3 +99,4 @@ In a real-world production scenario, I would make the following changes:
 - Caching: heart rate statistics would be cached in Redis with a short TTL to avoid recalculating for every request. LRU cache eviction strategy would prevent memory overflow.
 - Persistent request tracking: instead of using an in-memory Map, I would publish events (e.g. patient.requested) to a broker like RabbitMQ or Kafka and persist request counts asynchronously in a database every hour.
 - Secrets management: environment variables like FILE_NAME, PORT, and thresholds would come from a secure secrets manager (e.g. AWS Secrets Manager, Vault) or be injected by orchestration tooling instead of .env files.
+- Testing Infrastructure: I would set up a testing suite with CI/CD pipelines to ensure reliability across changes.
